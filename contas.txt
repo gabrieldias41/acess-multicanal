@@ -1,0 +1,8 @@
+cliente1 / 123
+todos os serviços ativos
+
+cliente2 / 123
+mail marketing ativo
+
+admin / admin
+edição de contas de usuarios
