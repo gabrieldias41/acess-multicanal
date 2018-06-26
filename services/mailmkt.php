@@ -17,7 +17,7 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 	//FORM DATA
 	$tokn = '3B2F48D0DC3587DA1251';
 	$usr = 'adminaccess';
-	$varcanal = '2';
+	$varcanal = '1';
 ?>
 
 <head>
@@ -66,12 +66,12 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 <div style="background: white; padding-left: 10px">
 	<div class="row">
 		<div class="col-lg-12">
-			<h2 class="page-header">Portal > SMS</h2>
+			<h2 class="page-header">Portal > Mail Marketing</h2>
 		</div>
 	</div>
 	
 		<fieldset class="well form-horizontal">
-			<legend><br><br>Envio de lista CSV para SMS Massivo (manutenção)</legend>
+			<legend><br><br>Envio de lista CSV para Mail Marketing (manutenção)</legend>
 				<form action="" method="post" enctype="multipart/form-data">
 				
 					<div class="form-group">
@@ -117,8 +117,9 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 
 			</form>
 		</fieldset>
+
 		<fieldset class="well form-horizontal">
-			<legend><br><br>Envio avulso de SMS (funcionando)</legend>
+			<legend><br><br>Envio avulso de Email (funcionando)</legend>
 			<form method="GET" action="http://s.robbu.com.br/wsInvenioAPI.ashx" id="send_sms">
 				<div id="newsletter"> 
 					<input type="text" hidden="true" name="token" value="<?php echo $tokn; ?>"/>
@@ -128,25 +129,16 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 					<!-- 
 					DDD <input type="text" name="dddtelefone" value="" placeholder="xx" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="47"/> <br>
 					-->
-					<div class="form-group">
-						<label class="col-md-4 control-label">DDD</label>
-						<div class="col-md-4 inputGroupContainer">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-								<input  type="text" name="dddtelefone" placeholder="DDD" class="form-control" value="">
-							</div>
-						</div>
-					</div>
 					
 					<!-- 
 					Telefone <input type="text" name="numerotelefone" value="" placeholder="xxxx xxxx" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="9"/><br>
 					-->
 					<div class="form-group">
-						<label class="col-md-4 control-label">Telefone</label>
+						<label class="col-md-4 control-label">Email</label>
 						<div class="col-md-4 inputGroupContainer">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-								<input  type="text" name="numerotelefone" placeholder="XXXX-XXXX" class="form-control" value="">
+								<input type="email" name="EnderecoEmail" placeholder="contact@example.com" class="form-control" value="">
 							</div>
 						</div>
 					</div>
@@ -154,6 +146,7 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 					<!--
 					Mensagem <input type="text" name="mensagem" value="" placeholder="Digite a mensagem" maxlength="159"/> <br>
 					-->
+					
 					<div class="form-group">
 						<label class="col-md-4 control-label">Mensagem</label>
 						<div class="col-md-4 inputGroupContainer">
@@ -165,13 +158,17 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 							</div>
 						</div>
 					</div>
-					
+										
 					<input type="text" hidden="true" name="canal" value="<?php echo $varcanal; ?>"/>
 					<input type="text" hidden="true" name="codcarteira" value=""/>
-					<input type="text" hidden="true" name="EnderecoEmail" value=""/>
+					<input type="text" hidden="true" name="numerotelefone" value=""/>
+					<input type="text" hidden="true" name="dddtelefone" value=""/>
 					<input type="text" hidden="true" name="CpfCnpj" value=""/>
+					
+					<!--
 					<input type="text" hidden="true" name="WhatsappSaidaDDD" value=""/>
-					<input type="text" hidden="true" name="WhatsappSaidaTelefone" value=""/>
+					<input type="text" hidden="true" name="WhatsappSaidaTelefone" value=""/> 
+					-->
 					<input type="text" hidden="true" name="massivo" value="n"/>
 					
 					<center>
@@ -186,4 +183,3 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 		</fieldset>
 <br>		
 </div>
-

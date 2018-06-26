@@ -19,12 +19,13 @@ include_once('includes/header.php');
 		margin: none;
 		margin-left: 19%;
 		padding: none;
+		padding-right: 5px;
 		border: none;
 		width: 81%;
-		height: 570px;
+		height: 900px;
 	}
 </style>
 
 
-<iframe src="http://127.0.0.1/example/" width="100%"></iframe>
+<iframe src="services/chatbot.php" width="100%" scrolling="no"></iframe>
 <?php include_once('includes/footer.php'); ?>

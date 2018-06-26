@@ -66,12 +66,12 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 <div style="background: white; padding-left: 10px">
 	<div class="row">
 		<div class="col-lg-12">
-			<h2 class="page-header">Portal > SMS</h2>
+			<h2 class="page-header">Portal > Chatbot</h2>
 		</div>
 	</div>
-	
+		<!--
 		<fieldset class="well form-horizontal">
-			<legend><br><br>Envio de lista CSV para SMS Massivo (manutenção)</legend>
+			<legend><br><br>Envio de lista CSV para SMS Massivo</legend>
 				<form action="" method="post" enctype="multipart/form-data">
 				
 					<div class="form-group">
@@ -117,63 +117,23 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 
 			</form>
 		</fieldset>
+		-->
+
 		<fieldset class="well form-horizontal">
-			<legend><br><br>Envio avulso de SMS (funcionando)</legend>
+			<legend><br><br>Mensagens do chatbot (com bugs)</legend>
 			<form method="GET" action="http://s.robbu.com.br/wsInvenioAPI.ashx" id="send_sms">
+			
 				<div id="newsletter"> 
 					<input type="text" hidden="true" name="token" value="<?php echo $tokn; ?>"/>
-					<input type="text" hidden="true" name="acao" value="enviarmensagem"/>
-					<input type="text" hidden="true" name="nomeusuario" value="<?php echo $usr; ?>"/>
-					
-					<!-- 
-					DDD <input type="text" name="dddtelefone" value="" placeholder="xx" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="47"/> <br>
-					-->
-					<div class="form-group">
-						<label class="col-md-4 control-label">DDD</label>
-						<div class="col-md-4 inputGroupContainer">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-								<input  type="text" name="dddtelefone" placeholder="DDD" class="form-control" value="">
-							</div>
-						</div>
-					</div>
-					
-					<!-- 
-					Telefone <input type="text" name="numerotelefone" value="" placeholder="xxxx xxxx" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="9"/><br>
-					-->
-					<div class="form-group">
-						<label class="col-md-4 control-label">Telefone</label>
-						<div class="col-md-4 inputGroupContainer">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-								<input  type="text" name="numerotelefone" placeholder="XXXX-XXXX" class="form-control" value="">
-							</div>
-						</div>
-					</div>
-					
-					<!--
-					Mensagem <input type="text" name="mensagem" value="" placeholder="Digite a mensagem" maxlength="159"/> <br>
-					-->
-					<div class="form-group">
-						<label class="col-md-4 control-label">Mensagem</label>
-						<div class="col-md-4 inputGroupContainer">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-								<!-- input class="txtarea" type="textfield" name="mensagem" value="" placeholder="Digite a mensagem" maxlength="159"/>
-								-->
-								<textarea class="txtarea" name="mensagem" rows="5" cols="32" maxlength="159"></textarea>
-							</div>
-						</div>
-					</div>
-					
 					<input type="text" hidden="true" name="canal" value="<?php echo $varcanal; ?>"/>
-					<input type="text" hidden="true" name="codcarteira" value=""/>
-					<input type="text" hidden="true" name="EnderecoEmail" value=""/>
-					<input type="text" hidden="true" name="CpfCnpj" value=""/>
-					<input type="text" hidden="true" name="WhatsappSaidaDDD" value=""/>
-					<input type="text" hidden="true" name="WhatsappSaidaTelefone" value=""/>
-					<input type="text" hidden="true" name="massivo" value="n"/>
-					
+					Data e hora inicio:<br>
+					<input type="datetime-local" name="datainicio" value="" placeholder="ddMMyyyyHHmmss"/>
+					<br>
+					<br>
+					Data e hora fim:<br>
+					<input type="datetime-local" name="datafim" value="" placeholder="ddMMyyyyHHmmss"/>
+					<input type="text" hidden="true" name="acao" value="buscarenvios"/>
+										
 					<center>
 						<div class="buttonenv">
 							<!-- input type="hidden" name="submit_newsletter" /> -->

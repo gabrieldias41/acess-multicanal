@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Grupo Access</title>
+        <title>Grupo Access - SOMENTE SISTEMAS AVULSOS ESTAO FUNCIONANDO</title>
 
         <!-- Bootstrap Core CSS -->
         <link  rel="stylesheet" href="css/bootstrap.min.css"/>
@@ -52,13 +52,16 @@
                     <!-- /.navbar-header -->
                     <ul class="nav navbar-top-links navbar-right">
 
-						<b>Usuario: </b> <?php echo $_SESSION['nome']; ?>
+						
                         <!-- /.dropdown -->
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-user">
+								<li><a href="#"><i class="fa fa-user fa-fw"></i><?php echo $_SESSION['nome']; ?></a>
+								</li>
+								<li class="divider"></li>
                                 <li><a href="#"><i class="fa fa-user fa-fw"></i> Meu Perfil</a>
                                 </li>
                                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Confirações</a>

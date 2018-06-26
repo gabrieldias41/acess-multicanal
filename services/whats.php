@@ -17,7 +17,9 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 	//FORM DATA
 	$tokn = '3B2F48D0DC3587DA1251';
 	$usr = 'adminaccess';
-	$varcanal = '2';
+	$varcanal = '3';
+	$wppdddsaida = '11';
+	$wppnumsaida = '965721465';
 ?>
 
 <head>
@@ -66,12 +68,12 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 <div style="background: white; padding-left: 10px">
 	<div class="row">
 		<div class="col-lg-12">
-			<h2 class="page-header">Portal > SMS</h2>
+			<h2 class="page-header">Portal > WhatsApp</h2>
 		</div>
 	</div>
 	
 		<fieldset class="well form-horizontal">
-			<legend><br><br>Envio de lista CSV para SMS Massivo (manutenção)</legend>
+			<legend><br><br>Envio de lista CSV para WhatsApp Massivo (manutenção)</legend>
 				<form action="" method="post" enctype="multipart/form-data">
 				
 					<div class="form-group">
@@ -117,8 +119,9 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 
 			</form>
 		</fieldset>
+
 		<fieldset class="well form-horizontal">
-			<legend><br><br>Envio avulso de SMS (funcionando)</legend>
+			<legend><br><br>Envio avulso de Mensagem WhatsApp (funcionando)</legend>
 			<form method="GET" action="http://s.robbu.com.br/wsInvenioAPI.ashx" id="send_sms">
 				<div id="newsletter"> 
 					<input type="text" hidden="true" name="token" value="<?php echo $tokn; ?>"/>
@@ -170,8 +173,8 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 					<input type="text" hidden="true" name="codcarteira" value=""/>
 					<input type="text" hidden="true" name="EnderecoEmail" value=""/>
 					<input type="text" hidden="true" name="CpfCnpj" value=""/>
-					<input type="text" hidden="true" name="WhatsappSaidaDDD" value=""/>
-					<input type="text" hidden="true" name="WhatsappSaidaTelefone" value=""/>
+					<input type="text" hidden="true" name="WhatsappSaidaDDD" value="<?php echo $wppdddsaida; ?>"/>
+					<input type="text" hidden="true" name="WhatsappSaidaTelefone" value="<?php echo $wppnumsaida; ?>"/>
 					<input type="text" hidden="true" name="massivo" value="n"/>
 					
 					<center>
