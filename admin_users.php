@@ -26,7 +26,7 @@ if ($order_by == "") {
 
 //Get DB instance. i.e instance of MYSQLiDB Library
 $db = getDbInstance();
-$select = array('id', 'user_name', 'passwd', 'nome', 'fone', 'email', 'user_type', 'acesso_whats', 'acesso_mail', 'acesso_sms','acesso_bot');
+$select = array('id', 'user_name', 'passwd', 'nome', 'fone', 'email', 'user_type', 'acesso_whats', 'acesso_mail', 'acesso_sms','acesso_bot','acesso_higien');
 
 // If user searches 
 if ($search_string) {
@@ -181,6 +181,14 @@ include_once 'includes/header.php';
 					?>
 					<?php endif; ?>
 				</td>
+				
+				<!-- HIGIEN: mostra sim ou nao para bool da db -->
+				<td><?php 
+					if($row['acesso_higien'] == '1') : echo 'Sim'; 
+					else: echo 'Não'
+					?>
+					<?php endif; ?>
+				</td>
 
                 <td>
                     <a href="edit_admin.php?admin_user_id=<?php echo $row['id']?>&operation=edit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
@@ -198,15 +206,15 @@ include_once 'includes/header.php';
                               <div class="modal-content">
                                 <div class="modal-header">
                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title">Confirm</h4>
+                                  <h4 class="modal-title">Confirmação</h4>
                                 </div>
                                 <div class="modal-body">
                                     <input type="hidden" name="del_id" id = "del_id" value="<?php echo $row['id'] ?>">
-                                    <p>Are you sure you want to delete this user?</p>
+                                    <p>Você tem certeza que deseja excluir este usuario?</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-default pull-left">Yes</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                    <button type="submit" class="btn btn-default pull-left">Sim</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
                                 </div>
                               </div>
                           </form>

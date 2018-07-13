@@ -1,19 +1,4 @@
 <?php
-if( $_SERVER['REQUEST_METHOD']=='POST' )
-{
-        var_dump( $_FILES );//apenas para debug
-
-
-        $servidor = 'host';
-        $caminho_absoluto = '/httpdocs/uploads/';
-        $arquivo = $_FILES['arquivo'];
-
-        $con_id = ftp_connect($servidor) or die( 'Não conectou em: '.$servidor );
-        ftp_login( $con_id, 'usuario', 'senha' );
-
-        ftp_put( $con_id, $caminho_absoluto.$arquivo['name'], $arquivo['tmp_name'], FTP_BINARY );
-}
-
 	//FORM DATA
 	$tokn = '3B2F48D0DC3587DA1251';
 	$usr = 'adminaccess';
@@ -28,7 +13,7 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Grupo Access</title>
+        <title>AC Soluções</title>
 
         <!-- Bootstrap Core CSS -->
         <link  rel="stylesheet" href="../css/bootstrap.min.css"/>
@@ -63,71 +48,28 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 		</style>
     </head>
 
-<div style="background: white; padding-left: 10px">
+<div style="background: white; padding-left: 10px" id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
-			<h2 class="page-header">Portal > SMS</h2>
+			<h2 class="page-header">SMS</h2>
 		</div>
 	</div>
 	
 		<fieldset class="well form-horizontal">
-			<legend><br><br>Envio de lista CSV para SMS Massivo (manutenção)</legend>
-				<form action="" method="post" enctype="multipart/form-data">
-				
-					<div class="form-group">
-						<label class="col-md-4 control-label">SELECIONE A CARTEIRA: </label>
-						<div class="col-md-4 inputGroupContainer">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-								<select name="CARTEIRA">
-									<option value="_cBREITHAUP">BREITHAUP</option>
-									<option value="_cHOSPITAIS">HOSPITAIS</option>
-									<option value="_cTEST">TEST</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					
-					<div class="form-group">
-						<label class="col-md-4 control-label">SELECIONE O METODO: </label>
-						<div class="col-md-4 inputGroupContainer">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-cog"></i></span>
-								<select name="METODO">
-									<option value="_q15020">15% DA BASE A CADA 20 MIN</option>
-									<option value="_q30020">30% DA BASE A CADA 20 MIN</option>
-								</select>
-							</div>
-						</div>
-					</div>
-						
-					<div class="form-group">
-						<label class="col-md-4 control-label">MAILING (.CSV) </label>
-						<div class="col-md-4 inputGroupContainer">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-folder-open" style="height:5px; top:-3px;"></i></span>
-								<input type="file" name="arquivo"/>
-							</div>
-						</div>
-					</div>
-					
-					<center>
-						<input type="submit" name="enviar" value="Enviar" /><br>
-					</center>
-
-			</form>
+			<legend><br><br>Envio de lista CSV para SMS Massivo</legend>
+			
+			<iframe src="http://gabrieldias.freeasphost.net/SMS.aspx" width="100%" frameborder="0" height="280px"></iframe>
+			
 		</fieldset>
 		<fieldset class="well form-horizontal">
-			<legend><br><br>Envio avulso de SMS (funcionando)</legend>
+			<legend><br><br>Envio avulso de SMS</legend>
 			<form method="GET" action="http://s.robbu.com.br/wsInvenioAPI.ashx" id="send_sms">
 				<div id="newsletter"> 
 					<input type="text" hidden="true" name="token" value="<?php echo $tokn; ?>"/>
 					<input type="text" hidden="true" name="acao" value="enviarmensagem"/>
 					<input type="text" hidden="true" name="nomeusuario" value="<?php echo $usr; ?>"/>
 					
-					<!-- 
-					DDD <input type="text" name="dddtelefone" value="" placeholder="xx" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="47"/> <br>
-					-->
+					
 					<div class="form-group">
 						<label class="col-md-4 control-label">DDD</label>
 						<div class="col-md-4 inputGroupContainer">
@@ -137,10 +79,6 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 							</div>
 						</div>
 					</div>
-					
-					<!-- 
-					Telefone <input type="text" name="numerotelefone" value="" placeholder="xxxx xxxx" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="9"/><br>
-					-->
 					<div class="form-group">
 						<label class="col-md-4 control-label">Telefone</label>
 						<div class="col-md-4 inputGroupContainer">
@@ -150,17 +88,12 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 							</div>
 						</div>
 					</div>
-					
-					<!--
-					Mensagem <input type="text" name="mensagem" value="" placeholder="Digite a mensagem" maxlength="159"/> <br>
-					-->
 					<div class="form-group">
 						<label class="col-md-4 control-label">Mensagem</label>
 						<div class="col-md-4 inputGroupContainer">
 							<div class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-								<!-- input class="txtarea" type="textfield" name="mensagem" value="" placeholder="Digite a mensagem" maxlength="159"/>
-								-->
+								
 								<textarea class="txtarea" name="mensagem" rows="5" cols="32" maxlength="159"></textarea>
 							</div>
 						</div>
@@ -176,8 +109,6 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 					
 					<center>
 						<div class="buttonenv">
-							<!-- input type="hidden" name="submit_newsletter" /> -->
-							<!-- a href="#" onClick="document.getElementById('send_sms').submit();">Enviar</a> -->
 							<input type="submit" onClick="document.getElementById('send_sms').submit();" name="submit" value="Enviar" /><br>
 						</div>
 					</center>

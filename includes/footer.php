@@ -14,7 +14,7 @@
     <script src="js/sb-admin-2.js"></script>
     <script src="js/jquery.validate.min.js"></script>
 	<center>
-		All rights reservated to <a href="http://www.accesscobranca.com.br/" target="_blank">Grupo Acess</a> @2018
+		All rights reservated to <a href="#" target="_blank">AC Soluções</a> @2018
 	</center>
 </body>
 

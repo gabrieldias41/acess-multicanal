@@ -20,10 +20,15 @@ include_once('includes/header.php');
 		padding: none;
 		padding-right: 5px;
 		border: none;
-		height: 900px;
+		height: 1500px;
 	}
 </style>
 
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+  }
+</script>
 
-<iframe src="services/chatbot.php" width="100%" scrolling="no"></iframe>
+<iframe src="services/higienizacao.php" width="100%" scrolling="no" onload="resizeIframe(this)"></iframe>
 <?php include_once('includes/footer.php'); ?>

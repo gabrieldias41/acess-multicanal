@@ -6,10 +6,10 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="AC Soluções">
+        <meta name="author" content="Gabriel Dias Lopes">
 
-        <title>Grupo Access - SOMENTE SISTEMAS AVULSOS ESTAO FUNCIONANDO</title>
+        <title>AC Soluções</title>
 
         <!-- Bootstrap Core CSS -->
         <link  rel="stylesheet" href="css/bootstrap.min.css"/>
@@ -46,7 +46,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <img src="images/logo.png" width="auto" height="50px" style="margin-left: 25%;"/>
+						<a href="index.php">
+                        <img src="images/logo2.png" width="auto" height="50px" style="margin-left: 25%;"/>
+						</a>
                     </div>
 					
                     <!-- /.navbar-header -->
@@ -59,13 +61,8 @@
                                 <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-user">
-								<li><a href="#"><i class="fa fa-user fa-fw"></i><?php echo $_SESSION['nome']; ?></a>
+								<li><a href="#"><i class="fa fa-user fa-fw"></i> <?php echo $_SESSION['nome']; ?></a>
 								</li>
-								<li class="divider"></li>
-                                <li><a href="#"><i class="fa fa-user fa-fw"></i> Meu Perfil</a>
-                                </li>
-                                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Confirações</a>
-                                </li>
                                 <li class="divider"></li>
                                 <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                                 </li>
@@ -82,7 +79,7 @@
 							
 								<!-- menu Dashboard -->
                                 <li>
-                                    <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                    <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                                 </li>
 								
 								<!-- menu usuarios -->
@@ -100,35 +97,42 @@
 										<!-- mostra que não há serviços -->
 										<?php if ($_SESSION['acesso_whats'] == '0' && $_SESSION['acesso_mail'] == '0' && $_SESSION['acesso_sms'] == '0' && $_SESSION['acesso_bot'] == '0') : ?>
 											<li>
-												<a href="#"><i class="fa fa-error"></i>Sem serviços disponiveis</a>
+												<a href="#"><i class="fa fa-error"></i>- Sem serviços disponiveis -</a>
 											</li>
 										<?php endif; ?>
 											
 										<!-- verifica acesso ao serviço whatsapp -->
 										<?php if ($_SESSION['acesso_whats'] == '1') : ?>
 											<li>
-												<a href="s1.php"><i class="fa fa-comments"></i>WhatsApp</a>
+												<a href="load.php?service=whatsapp"><i class="fa fa-whatsapp"></i> WhatsApp</a>
 											</li>
 										<?php endif; ?>
 										
 										<!-- verifica acesso ao serviço mail marketing -->
 										<?php if ($_SESSION['acesso_mail'] == '1') : ?>
 										<li>
-											<a href="s2.php"><i class="fa fa-envelope "></i>Mail Marketing</a>
+											<a href="load.php?service=emailmarketing"><i class="fa fa-envelope"></i> Mail Marketing</a>
 										</li>
 										<?php endif; ?>
 										
 										<!-- verifica acesso ao serviço send sms -->
 										<?php if ($_SESSION['acesso_sms'] == '1') : ?>
 										<li>
-											<a href="s3.php"><i class="fa fa-envelope "></i>SMS Sender</a>
+											<a href="load.php?service=sms"><i class="fa fa-comments"></i> SMS Sender</a>
 										</li>
 										<?php endif; ?>
 										
 										<!-- verifica acesso ao serviço  -->
 										<?php if ($_SESSION['acesso_bot'] == '1') : ?>
 										<li>
-											<a href="s4.php"><i class="fa fa-envelope "></i>Chatbot</a>
+											<a href="load.php?service=chatbot"><i class="fa fa-magic"></i> Chatbot</a>
+										</li>
+										<?php endif; ?>	
+										
+										<!-- verifica acesso ao serviço  -->
+										<?php if ($_SESSION['acesso_higien'] == '1') : ?>
+										<li>
+											<a href="load.php?service=refiner"><i class="fa fa-diamond"></i> Higienização</a>
 										</li>
 										<?php endif; ?>
                                     </ul>

@@ -14,10 +14,6 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
         ftp_put( $con_id, $caminho_absoluto.$arquivo['name'], $arquivo['tmp_name'], FTP_BINARY );
 }
 
-	//FORM DATA
-	$tokn = '3B2F48D0DC3587DA1251';
-	$usr = 'adminaccess';
-	$varcanal = '2';
 ?>
 
 <head>
@@ -28,7 +24,7 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>AC Soluções</title>
+        <title>Grupo Access</title>
 
         <!-- Bootstrap Core CSS -->
         <link  rel="stylesheet" href="../css/bootstrap.min.css"/>
@@ -66,41 +62,31 @@ if( $_SERVER['REQUEST_METHOD']=='POST' )
 <div style="background: white; padding-left: 10px" id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
-			<h2 class="page-header">Chatbot</h2>
+			<h2 class="page-header">Higienização</h2>
 		</div>
 	</div>
+	
+		<!--
+			https://api.assertivasolucoes.com.br/api/1.0.0/localize/xml/pf?empresa=SUA-EMPRESA&usuario=SEU-USUARIO&senha=SUA-SENHA&documento=NUMERO-CPF
+		-->
+		
 		
 		<fieldset class="well form-horizontal">
-			<legend><br><br>Em construção</legend>
+			<legend><br><br>Consultar</legend>
+			<form method="GET" action="http://localhost/services/H/consultarPF.php" id="getTable">
 			
-			<center>
-				<img src="images/maintenance.png" width="200px"/>
-			</center>
-			<!--
-			<form method="GET" action="http://s.robbu.com.br/wsInvenioAPI.ashx" id="send_sms">
-			
-				<div id="newsletter"> 
-					<input type="text" hidden="true" name="token" value="<?php echo $tokn; ?>"/>
-					<input type="text" hidden="true" name="canal" value="<?php echo $varcanal; ?>"/>
-					Data e hora inicio:<br>
-					<input type="datetime-local" name="datainicio" value="" placeholder="ddMMyyyyHHmmss"/>
+				<div id="campo"> 
+					<input type="text" class="form-control" name="documento" placeholder="Digite o CPF" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
 					<br>
-					<br>
-					Data e hora fim:<br>
-					<input type="datetime-local" name="datafim" value="" placeholder="ddMMyyyyHHmmss"/>
-					<input type="text" hidden="true" name="acao" value="buscarenvios"/>
-										
+															
 					<center>
 						<div class="buttonenv">
-							<input type="hidden" name="submit_newsletter" />
-							<a href="#" onClick="document.getElementById('send_sms').submit();">Enviar</a>
-							<input type="submit" onClick="document.getElementById('send_sms').submit();" name="submit" value="Enviar" /><br>
+							<input type="submit" class="btn btn-success" onClick="document.getElementById('getTable').submit();" value="Pesquisar" /><br>
 						</div>
 					</center>
 				</div>
 			</form>
-			-->
+
 		</fieldset>
 <br>		
 </div>
-

@@ -7,8 +7,8 @@ require_once 'includes/auth_validate.php';
 $db = getDbInstance();
 
 //Get Dashboard information
-$numAccounts = $db->getValue ("accounts", "count(*)");
-$numTasks = $db->getValue ("tasks", "COUNT(*)");
+//$numAccounts = $db->getValue ("accounts", "count(*)");
+//$numTasks = $db->getValue ("tasks", "COUNT(*)");
 
 include_once('includes/header.php');
 ?>
@@ -17,11 +17,9 @@ include_once('includes/header.php');
 		scrolling: no;
 		background: white;
 		margin: none;
-		margin-left: 19%;
 		padding: none;
 		padding-right: 5px;
 		border: none;
-		width: 81%;
 		height: 900px;
 	}
 </style>

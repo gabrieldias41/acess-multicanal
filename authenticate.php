@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 		$_SESSION['acesso_mail'] = $row[0]['acesso_mail'];
 		$_SESSION['acesso_sms'] = $row[0]['acesso_sms'];
 		$_SESSION['acesso_bot'] = $row[0]['acesso_bot'];
+		$_SESSION['acesso_higien'] = $row[0]['acesso_higien'];
        	if($remember)
        	{
        		setcookie('username',$username , time() + (86400 * 90), "/");

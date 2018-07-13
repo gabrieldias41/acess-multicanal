@@ -28,6 +28,7 @@ if(isset($_COOKIE['username']) && isset($_COOKIE['password']))
 		$_SESSION['acesso_mail'] = $row[0]['acesso_mail'];
 		$_SESSION['acesso_sms'] = $row[0]['acesso_sms'];
 		$_SESSION['acesso_bot'] = $row[0]['acesso_bot'];
+		$_SESSION['acesso_higien'] = $row[0]['acesso_higien'];
         header('Location:index.php');
         exit;
     }
@@ -51,8 +52,8 @@ include_once 'includes/header.php';
 		<div class="login-panel panel panel-default">
 			<center>
 				<br>
-				<img src="images/logo.png"/>
-				<br><br>
+				<img src="images/logo2.png" width="120px" height="120px"/>
+				<br>
 			</center>
 			
 			<div class="panel-body">
